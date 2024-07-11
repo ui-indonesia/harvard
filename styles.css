@@ -50,7 +50,7 @@ main {
 }
 
 .hero {
-    background-image: url('gedung harvard.jfif');
+    background-image: url('harvard_campus.jpg');
     background-size: cover;
     background-position: center;
     height: 400px; /* Adjust height as needed */
