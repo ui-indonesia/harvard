@@ -121,38 +121,70 @@ main {
     background-color: #004b87;
 }
 
-footer {
-    background-color: #002b5b;
-    color: #ffffff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.application-form,
+.application-management {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
-footer nav ul {
-    display: flex;
+.application-form h2,
+.application-management h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-footer nav ul li {
-    margin-right: 20px;
-}
-
-footer nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-footer nav ul li a:hover {
-    color: #ff6f00;
-}
-
-.contact-info p {
+.application-form label {
+    display: block;
+    font-size: 1rem;
     margin-bottom: 5px;
 }
 
-.contact-info p:last-child {
-    margin-bottom: 0;
+.application-form input,
+.application-form select,
+.application-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
 }
+
+.btn-submit {
+    background-color: #002b5b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #004b87;
+}
+
+.application-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.application-management table,
+.application-management th,
+.application-management td {
+    border: 1px solid #ccc;
+}
+
+.application-management th,
+.application-management td {
+    padding: 10px;
+    text-align: left;
+}
+
+footer {
+    background-color: #002b5b;
+
