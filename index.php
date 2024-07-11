@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="harvard logo.jfif" alt="harvard Logo">
+            <img src="harvard_logo.png" alt="Harvard Logo">
         </div>
         <nav>
             <ul>
