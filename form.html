@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Aplikasi Harvard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="harvard_logo.png" alt="Harvard Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Aplikasi</a></li>
+                <li><a href="#">Informasi</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="application-form">
+            <h2>Formulir Aplikasi Harvard</h2>
+            <form action="#" method="POST">
+                <label for="fullname">Nama Lengkap:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Nomor Telepon:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="birthdate">Tanggal Lahir:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+
+                <label for="gender">Jenis Kelamin:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Laki-laki</option>
+                    <option value="female">Perempuan</option>
+                    <option value="other">Lainnya</option>
+                </select>
+
+                <label for="program">Program Pilihan:</label>
+                <select id="program" name="program" required>
+                    <option value="undergraduate">Sarjana (Undergraduate)</option>
+                    <option value="graduate">Pascasarjana (Graduate)</option>
+                    <option value="phd">Doktoral (PhD)</option>
+                </select>
+
+                <label for="essay">Esai Motivasi:</label>
+                <textarea id="essay" name="essay" rows="4" required></textarea>
+
+                <button type="submit" class="btn-submit">Kirim Aplikasi</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#">Kebijakan Privasi</a></li>
+                <li><a href="#">Syarat dan Ketentuan</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <p>Hubungi kami: Universitas Harvard, 123 Harvard Yard, Cambridge, MA 02138, USA</p>
+            <p>Email: info@harvard.edu | Telepon: +1-617-495-1000</p>
+        </div>
+    </footer>
+</body>
+</html>
