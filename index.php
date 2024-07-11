@@ -43,7 +43,7 @@
         <!-- Formulir Aplikasi -->
         <section id="application-form" class="application-form">
             <h2>Formulir Aplikasi Harvard</h2>
-            <form action="#" method="POST">
+            <form action="index.php#application-form" method="POST">
                 <label for="fullname">Nama Lengkap:</label>
                 <input type="text" id="fullname" name="fullname" required>
 
@@ -75,6 +75,43 @@
 
                 <button type="submit" class="btn-submit">Kirim Aplikasi</button>
             </form>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "harvard_applications";
+
+                // Buat koneksi
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Periksa koneksi
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // Ambil data dari formulir
+                $fullname = $_POST['fullname'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
+                $birthdate = $_POST['birthdate'];
+                $gender = $_POST['gender'];
+                $program = $_POST['program'];
+                $essay = $_POST['essay'];
+
+                // Buat kueri untuk menyimpan data
+                $sql = "INSERT INTO applications (fullname, email, phone, birthdate, gender, program, essay)
+                        VALUES ('$fullname', '$email', '$phone', '$birthdate', '$gender', '$program', '$essay')";
+
+                if ($conn->query($sql) === TRUE) {
+                    echo "<p>Aplikasi berhasil dikirim.</p>";
+                } else {
+                    echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
+                }
+
+                $conn->close();
+            }
+            ?>
         </section>
 
         <!-- Manajemen Aplikasi -->
@@ -90,13 +127,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>johndoe@example.com</td>
-                        <td>Sarjana (Undergraduate)</td>
-                        <td>Sedang Diproses</td>
-                    </tr>
-                    <!-- Tambahkan baris lainnya sesuai kebutuhan -->
+                    <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "harvard_applications";
+
+                    // Buat koneksi ke basis data
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    // Periksa koneksi
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    // Ambil data aplikasi
+                    $sql = "SELECT fullname, email, program, status FROM applications";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        // Tampilkan data dalam tabel
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row['fullname'] . "</td>";
+                            echo "<td>" . $row['email'] . "</td>";
+                            echo "<td>" . $row['program'] . "</td>";
+                            echo "<td>" . $row['status'] . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>Tidak ada aplikasi.</td></tr>";
+                    }
+
+                    $conn->close();
+                    ?>
                 </tbody>
             </table>
         </section>
